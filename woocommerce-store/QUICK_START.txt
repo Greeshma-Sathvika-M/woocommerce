@@ -1,0 +1,92 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                   WooCommerce Product Store - Quick Start                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+BEFORE YOU BEGIN
+================
+1. Have Node.js/npm installed
+2. Have local WordPress with WooCommerce running
+3. Have WooCommerce API credentials ready (Consumer Key & Secret)
+
+STEP 1: Configure Backend Credentials
+====================================
+Open: server/.env
+
+Replace these placeholders with your actual WooCommerce credentials:
+  WOOCOMMERCE_CONSUMER_KEY=ck_xxxxxxxxx
+  WOOCOMMERCE_CONSUMER_SECRET=cs_xxxxxxxxx
+
+How to get credentials:
+- Log in to WordPress admin
+- Go to WooCommerce → Settings → Advanced → REST API
+- Create a new key
+- Copy Consumer Key and Secret
+
+STEP 2: Install & Start Backend
+==============================
+Terminal 1:
+
+  cd server
+  npm install
+  npm start
+
+Expected output:
+  Backend server running at http://localhost:5000
+
+STEP 3: Install & Start Frontend
+===============================
+Terminal 2:
+
+  cd client
+  npm install
+  npm run dev
+
+Expected output:
+  ➜  Local:   http://localhost:5173/
+
+STEP 4: Open in Browser
+======================
+Terminal 3:
+
+  Visit: http://localhost:5173
+
+You should see your WooCommerce products displayed!
+
+VERIFY SETUP
+===========
+Backend is working:
+  Visit: http://localhost:5000/api/products
+  Should show JSON array of products
+
+Frontend is working:
+  Visit: http://localhost:5173
+  Should show products in a grid
+
+STOP THE SERVERS
+===============
+- Press Ctrl + C in Terminal 1 (Backend)
+- Press Ctrl + C in Terminal 2 (Frontend)
+
+NEED HELP?
+=========
+- Check SETUP.md for detailed instructions
+- Check README.md for documentation
+- Check browser console (F12) for errors
+- Check backend terminal for error messages
+
+KEY CONCEPT: Data Flow
+======================
+Browser → Frontend (React) → Backend (Express) → WooCommerce API
+
+Credentials NEVER go to browser - only backend sees them!
+
+REMEMBER
+========
+✓ Backend must run on port 5000
+✓ Frontend must run on port 5173
+✓ Both servers must be running for it to work
+✓ Never put credentials in frontend code
+✓ .env file contains sensitive data - never commit it
+
+HAPPY CODING!
+=============
